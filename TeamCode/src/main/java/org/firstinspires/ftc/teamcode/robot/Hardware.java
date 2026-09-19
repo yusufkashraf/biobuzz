@@ -20,6 +20,8 @@ public class Hardware {
     public DcMotorEx backLeftMotor;
 
     public DcMotorEx intake;
+    public DcMotorEx pollenShooter;
+    public DcMotorEx nectarShooter;
 
     public IMU imu;
 
@@ -32,6 +34,7 @@ public class Hardware {
         backRightMotor = hardwareMap.get(DcMotorEx.class, "backRightMotor");
         backLeftMotor = hardwareMap.get(DcMotorEx.class, "backLeftMotor");
 
+
         frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -39,20 +42,28 @@ public class Hardware {
 
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
 
+
         frontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        pollenShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        nectarShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+
 
         frontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+        pollenShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         intake = hardwareMap.get(DcMotorEx.class, "intake");
 
-        imu = hardwareMap.get(IMU.class, "imu");
 
+        imu = hardwareMap.get(IMU.class, "imu");
         IMU.Parameters parameters = new IMU.Parameters(
                 new RevHubOrientationOnRobot(
                         RevHubOrientationOnRobot.LogoFacingDirection.LEFT,
@@ -60,6 +71,7 @@ public class Hardware {
                 )
         );
         imu.initialize(parameters);
+
 
         limelight = hardwareMap.get(Limelight3A.class, "limelight");
 
