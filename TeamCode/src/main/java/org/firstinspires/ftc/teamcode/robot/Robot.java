@@ -27,10 +27,10 @@ public class Robot {
         hardware.init(hardwareMap);
 
         drivetrain = new Drivetrain(
-                hardware.frontLeftMotor,
-                hardware.frontRightMotor,
-                hardware.backLeftMotor,
-                hardware.backRightMotor,
+                hardware.frontLeft,
+                hardware.frontRight,
+                hardware.backLeft,
+                hardware.backRight,
                 hardware.imu
         );
 

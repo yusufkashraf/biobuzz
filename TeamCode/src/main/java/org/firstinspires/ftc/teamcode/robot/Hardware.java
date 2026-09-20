@@ -14,10 +14,10 @@ public class Hardware {
      * handles all hardware used by robot
      */
 
-    public DcMotorEx frontRightMotor;
-    public DcMotorEx frontLeftMotor;
-    public DcMotorEx backRightMotor;
-    public DcMotorEx backLeftMotor;
+    public DcMotorEx frontRight;
+    public DcMotorEx frontLeft;
+    public DcMotorEx backRight;
+    public DcMotorEx backLeft;
 
     public DcMotorEx intake;
     public DcMotorEx pollenShooter;
@@ -29,33 +29,33 @@ public class Hardware {
 
     public void init(HardwareMap hardwareMap) {
 
-        frontRightMotor = hardwareMap.get(DcMotorEx.class, "frontRightMotor");
-        frontLeftMotor = hardwareMap.get(DcMotorEx.class, "frontLeftMotor");
-        backRightMotor = hardwareMap.get(DcMotorEx.class, "backRightMotor");
-        backLeftMotor = hardwareMap.get(DcMotorEx.class, "backLeftMotor");
+        frontRight = hardwareMap.get(DcMotorEx.class, "frontRight");
+        frontLeft = hardwareMap.get(DcMotorEx.class, "frontLeft");
+        backRight = hardwareMap.get(DcMotorEx.class, "backRight");
+        backLeft = hardwareMap.get(DcMotorEx.class, "backLeft");
 
 
-        frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        backLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        backRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        backRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
 
 
-        frontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         pollenShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         nectarShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
 
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         pollenShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         nectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

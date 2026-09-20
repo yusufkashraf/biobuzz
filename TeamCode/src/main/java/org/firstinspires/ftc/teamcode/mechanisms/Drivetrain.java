@@ -9,17 +9,17 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 public class Drivetrain {
 
-    private final DcMotorEx frontLeftMotor;
-    private final DcMotorEx frontRightMotor;
-    private final DcMotorEx backLeftMotor;
-    private final DcMotorEx backRightMotor;
+    private final DcMotorEx frontLeft;
+    private final DcMotorEx frontRight;
+    private final DcMotorEx backLeft;
+    private final DcMotorEx backRight;
     private final IMU imu;
 
-    public Drivetrain(DcMotorEx frontLeftMotor, DcMotorEx frontRightMotor, DcMotorEx backLeftMotor, DcMotorEx backRightMotor, IMU imu) {
-        this.frontLeftMotor = frontLeftMotor;
-        this.frontRightMotor = frontRightMotor;
-        this.backLeftMotor = backLeftMotor;
-        this.backRightMotor = backRightMotor;
+    public Drivetrain(DcMotorEx frontLeft, DcMotorEx frontRight, DcMotorEx backLeft, DcMotorEx backRight, IMU imu) {
+        this.frontLeft = frontLeft;
+        this.frontRight = frontRight;
+        this.backLeft = backLeft;
+        this.backRight = backRight;
         this.imu = imu;
     }
 
@@ -33,10 +33,10 @@ public class Drivetrain {
         double frontRightPower = (forward - strafe - rotation) / denominator;
         double backRightPower = (forward + strafe - rotation) / denominator;
 
-        frontLeftMotor.setPower(frontLeftPower);
-        backLeftMotor.setPower(backLeftPower);
-        frontRightMotor.setPower(frontRightPower);
-        backRightMotor.setPower(backRightPower);
+        frontLeft.setPower(frontLeftPower);
+        backLeft.setPower(backLeftPower);
+        frontRight.setPower(frontRightPower);
+        backRight.setPower(backRightPower);
     }
 
     public void fieldCentricDrive(double strafe, double forward, double rotation) {
