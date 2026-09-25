@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.teleops.tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,15 +10,15 @@ import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
-@TeleOp
+@TeleOp(group = "tests")
 public class DrivetrainTestFieldCentric extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
-        DcMotor frontLeft = hardwareMap.dcMotor.get("frontLeft");
-        DcMotor backLeft = hardwareMap.dcMotor.get("backLeft");
-        DcMotor frontRight = hardwareMap.dcMotor.get("frontRight");
-        DcMotor backRight = hardwareMap.dcMotor.get("backRight");
+        DcMotorEx frontRight = hardwareMap.get(DcMotorEx.class, "frontRight");
+        DcMotorEx frontLeft = hardwareMap.get(DcMotorEx.class, "frontLeft");
+        DcMotorEx backRight = hardwareMap.get(DcMotorEx.class, "backRight");
+        DcMotorEx backLeft = hardwareMap.get(DcMotorEx.class, "backLeft");
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
